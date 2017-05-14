@@ -1,0 +1,28 @@
+@import "../../core/style/basic";
+@import "../../core/style/common";
+
+.user-head{
+  border:1px solid $white_color;
+  border-radius: 50%;
+  width:80px;
+  height: 80px;
+  transition:All 0.6s ease-in-out;
+  &:hover{
+    transform-origin: 40px 40px;
+    transform:rotate(360deg);
+  }
+}
+
+.login-wrapper{
+  width:290px;
+  margin: 0 auto;
+}
+
+.login-waring{
+  margin-top: -25px;
+  border: 1px solid $def_color;
+  padding: 2px 6px;
+  font-size: 14px;
+  @extend .text-white;
+  @extend .bg-warning;
+}

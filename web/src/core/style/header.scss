@@ -1,0 +1,162 @@
+@import "basic";
+.navbar {
+  width:100%;
+  display: block;
+}
+.navbar-default{
+  background-color: $primary_color;
+}
+
+.navbar-fixed-top{
+  position: fixed;
+  left:0;
+  top:0;
+  z-index:9999;
+}
+
+.nav {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+.nav > li {
+  position: relative;
+  display: block;
+}
+.nav > li > a {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  color:$white_color;
+}
+.nav > li > a:hover{
+  text-decoration: none;
+  background-color: #eee;
+  color: $primary_color;
+}
+.navbar-nav {
+  margin: 7.5px -15px;
+}
+.navbar-nav > li > a {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  line-height: 20px;
+}
+@media (max-width: 767px) {
+  .navbar-nav .open .dropdown-menu {
+    position: static;
+    float: none;
+    width: auto;
+    margin-top: 0;
+    background-color: transparent;
+    border: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+  .navbar-nav .open .dropdown-menu > li > a,
+  .navbar-nav .open .dropdown-menu .dropdown-header {
+    padding: 5px 15px 5px 25px;
+  }
+  .navbar-nav .open .dropdown-menu > li > a {
+    line-height: 20px;
+  }
+  .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-nav .open .dropdown-menu > li > a:focus {
+    background-image: none;
+  }
+}
+@media (min-width: 768px) {
+  .navbar-nav {
+    float: left;
+    margin: 0;
+  }
+  .navbar-nav > li {
+    float: left;
+  }
+  .navbar-nav > li > a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+}
+@media (min-width: 768px) {
+  .navbar-left {
+    float: left !important;
+  }
+  .navbar-right {
+    float: right !important;
+    margin-right: -15px;
+  }
+  .navbar-right ~ .navbar-right {
+    margin-right: 0;
+  }
+}
+
+.butterbar {
+  position: relative;
+  margin-bottom: -3px;
+  height: 3px;
+}
+.butterbar .bar {
+  position: absolute;
+  height: 0;
+  width: 100%;
+  text-indent: -9999px;
+  background-color: $info_color;
+}
+.butterbar .bar:before {
+  content: "";
+  height: 3px;
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  background-color: inherit;
+}
+.butterbar.active {
+  -webkit-animation: changebar 2.25s infinite 0.75s;
+  -moz-animation: changebar 2.25s infinite 0.75s;
+  animation: changebar 2.25s infinite 0.75s;
+}
+.butterbar.active .bar {
+  -webkit-animation: changebar 2.25s infinite;
+  -moz-animation: changebar 2.25s infinite;
+  animation: changebar 2.25s infinite;
+}
+.butterbar.active .bar:before {
+  -webkit-animation: movingbar 0.75s infinite;
+  -moz-animation: movingbar 0.75s infinite;
+  animation: movingbar 0.75s infinite;
+}
+@keyframes movingbar {
+  0% {
+    left: 50%;
+    right: 50%;
+  }
+  99.9% {
+    left: 0%;
+    right: 0%;
+  }
+  100% {
+    left: 50%;
+    right: 50%;
+  }
+}
+@keyframes changebar {
+  0% {
+    background-color: $info_color;
+  }
+  33.3% {
+    background-color: $info_color;
+  }
+  33.33% {
+    background-color: $danger_color;
+  }
+  66.6% {
+    background-color: #f987d6;
+  }
+  66.66% {
+    background-color: #f987d6;
+  }
+  99.9% {
+    background-color: $primary_color;
+  }
+}

@@ -1,0 +1,20 @@
+@import "basic";
+$values:(normal $normal) (xs $xs) (sm $sm) (md $md) (lg $lg) (none $none);
+@mixin generatePosition($list){
+  @each $m in $list{
+    $type:nth($m, 1);
+    $key:nth($m, 2);
+    @each $val in $values{
+      .#{$type}-#{nth($val,1)}{
+        #{$key}:nth($val,2) !important;
+      }
+    }
+  }
+}
+//margin
+@include generatePosition($list:(m-l margin-left) (m-r margin-right) (m-t margin-top) (m-b margin-bottom));
+
+//padding
+@include generatePosition($list:(p-l padding-left) (p-r padding-right) (p-t padding-top) (p-b padding-bottom));
+
+//font-size

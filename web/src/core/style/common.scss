@@ -1,0 +1,132 @@
+@import "basic";
+@import "position";
+
+
+body,div,span,header,footer,nav,section,aside,article,ul, li, a, p, h1, h2, h3, h4,h5, i, b, textarea, button, input, select  {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: none;
+  box-sizing: border-box;
+  border: none;
+  font-family: 'Microsoft YaHei';
+  -webkit-tap-highlight-color:transparent;
+  &:focus {
+    outline: none;
+  }
+}
+
+//背景颜色
+.def-bg-color{
+  background-color: $def_color;
+}
+.bg-warning{
+  background-color: $warn_color;
+}
+
+//字体颜色
+.text-waring{
+  color:$warn_color;
+}
+.text-white{
+  color:$white_color;
+}
+.text-primary{
+  color:$primary_color;
+}
+.text-info{
+  color:$info_color;
+}
+
+
+body{
+  @extend .def-bg-color;
+}
+
+
+.text-center{
+  text-align:center ;
+}
+
+
+//按钮样式
+@mixin btn-change($outline:none,$btn_bg_color:#{$white_color},$txt:$block_color,$bd_color:$def_color) {
+  outline: $outline;
+  background-color:$btn_bg_color;
+  color:$txt;
+  border-color:$bd_color ;
+
+}
+.btn{
+  padding:8px 12px;
+  @extend .text-center;
+  border:1px solid #{$def_color};
+  cursor: pointer;
+}
+
+.btn-default{
+  @include btn-change();
+  &:hover{
+    background-color: darken($def_color,10%);
+    border-color: darken($def_color,10%);
+  }
+}
+.btn-primary{
+  @include btn-change($btn_bg_color:$primary_color,$txt:$white_color,$bd_color:$primary_color);
+  &:hover{
+    background-color: darken($primary_color,10%);
+    border-color: darken($primary_color,10%);
+  }
+}
+
+button[disabled="disabled"],button[disabled="true"],button[disabled],.disabled{
+  cursor: not-allowed !important;
+  background-color:$primary_color !important;
+  opacity: 0.6;
+}
+
+//输入框
+.input-control{
+  color:$block_color;
+  padding:6px 12px;
+  min-width:290px;
+  line-height: 1.4;
+  border:1px solid $def_color;
+  outline: none;
+  &:focus{
+    border-color: $primary_color;
+  }
+}
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+//栅格布局
+
+
+//一些小技巧
+.expend-height{
+  height: 100%;
+  width: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
