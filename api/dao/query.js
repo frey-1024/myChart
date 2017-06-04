@@ -8,7 +8,7 @@ module.exports = function (conn) {
                     throw error;
                 }
                 if (userInfo && userInfo.length) {
-                    defer.resolve(userInfo);
+                    defer.resolve(userInfo[0]);
                 } else {
                     defer.reject();
                 }
