@@ -1,6 +1,6 @@
 module.exports= function(app,conn,uuid){
     var query = require('../dao/query.js')(conn);
-    
+
     app.post('/login',function(req,res){
         query.getUserByName(req.body.name).then(function(data){
             query.getUserByNameAndPassword(req.body.name,req.body.password).then(function(user){
